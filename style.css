@@ -101,15 +101,7 @@ nav .container {
     color: var(--primary);
 }
 
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--text-main);
-    cursor: pointer;
-    padding: 0.5rem;
-}
+
 
 .nav-cta {
     display: flex;
@@ -655,27 +647,8 @@ footer {
         padding: 0 1.25rem;
     }
 
-    .menu-toggle {
-        display: block;
-    }
-
     .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 300px;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        padding: 6rem 2rem;
-        box-shadow: -10px 0 30px rgba(0,0,0,0.05);
-        transition: var(--transition);
-        z-index: 1001;
-    }
-
-    .nav-links.active {
-        right: 0;
+        display: none; /* Hide nav links on mobile since hamburger is gone */
     }
 
     .hero {
