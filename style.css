@@ -407,7 +407,17 @@ nav .container {
 }
 
 .ai-content {
+    flex: 1.2;
+}
+
+.ai-visual {
     flex: 1;
+    background: var(--bg-card);
+    border-radius: 32px;
+    padding: 3rem;
+    border: 1px solid var(--border);
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
 }
 
 .chat-container {
