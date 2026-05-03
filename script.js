@@ -42,69 +42,80 @@ tlHero.from('.hero-content .badge', { opacity: 0, y: 20, duration: 0.8 })
       .from('.hero-btns', { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
       .from('.hero-image', { opacity: 0, scale: 0.95, duration: 1.2 }, "-=0.8");
 
-// Scroll Reveal for sections
-const sections = document.querySelectorAll('section');
-sections.forEach(section => {
-    // skip hero as it has its own entrance
-    if (section.classList.contains('hero')) return;
-
-    gsap.from(section, {
+// Section Headings Reveal
+const sectionTitles = document.querySelectorAll('.section-title, .ai-content');
+sectionTitles.forEach(title => {
+    gsap.from(title, {
         scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-            toggleActions: "play none none none"
+            trigger: title,
+            start: "top 85%",
+            once: true
         },
         opacity: 0,
-        y: 40,
+        y: 30,
         duration: 1,
         ease: "power2.out"
     });
 });
 
-// Staggered Reveal for Portfolio Cards
-gsap.from('.portfolio-card', {
-    scrollTrigger: {
-        trigger: '.portfolio-grid',
-        start: "top 80%"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "back.out(1.7)"
-});
-
-// Staggered Reveal for Pricing Cards
-gsap.from('.pricing-card', {
-    scrollTrigger: {
-        trigger: '.pricing-grid',
-        start: "top 80%"
-    },
-    opacity: 0,
-    y: 40,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
+// Portfolio Cards Reveal
+document.querySelectorAll('.portfolio-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            once: true
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "power2.out"
+    });
 });
 
 // AI Visual Interaction
-gsap.from('.ai-visual div', {
-    scrollTrigger: {
-        trigger: '.ai-visual',
-        start: "top 70%"
-    },
-    opacity: 0,
-    x: 30,
-    duration: 0.8,
-    stagger: 0.3,
-    ease: "power2.out"
+document.querySelectorAll('.ai-visual div').forEach((div, i) => {
+    gsap.from(div, {
+        scrollTrigger: {
+            trigger: div,
+            start: "top 80%",
+            once: true
+        },
+        opacity: 0,
+        x: 30,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "power2.out"
+    });
 });
 
-// Floating Hero Image (Replaces CSS animation for more control)
+// Pricing Cards Reveal
+document.querySelectorAll('.pricing-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            once: true
+        },
+        opacity: 0,
+        y: 50,
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: "power2.out"
+    });
+});
+
+// Floating Hero Image
 gsap.to('.hero-image', {
     y: -15,
     duration: 3,
     repeat: -1,
     yoyo: true,
     ease: "sine.inOut"
+});
+
+// Refresh ScrollTrigger on load
+window.addEventListener('load', () => {
+    ScrollTrigger.refresh();
 });
