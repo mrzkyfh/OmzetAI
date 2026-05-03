@@ -27,6 +27,7 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -40,9 +41,9 @@ ul {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
 }
 
 /* Navbar */
@@ -99,30 +100,33 @@ nav .container {
 .btn {
     background: var(--primary);
     color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
+    padding: 0.85rem 2rem;
+    border-radius: 12px;
     font-weight: 600;
     display: inline-block;
     border: none;
     cursor: pointer;
     transition: var(--transition);
+    font-size: 0.95rem;
 }
 
 .btn:hover {
     background: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(34, 197, 94, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(34, 197, 94, 0.25);
 }
 
 .btn-outline {
-    background: transparent;
+    background: white;
     border: 1px solid var(--border);
     color: var(--text-main);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .btn-outline:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: #f8fafc;
     border-color: var(--primary);
+    color: var(--primary);
 }
 
 /* Hero Section */
@@ -199,32 +203,41 @@ nav .container {
     margin-bottom: 4rem;
 }
 
+.section-title {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
 .section-title h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
     margin-bottom: 1rem;
+    letter-spacing: -0.02em;
 }
 
 .section-title p {
     color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .portfolio {
-    padding: 6rem 0;
+    padding: 10rem 0;
 }
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns on desktop */
+    gap: 2.5rem;
 }
 
 .portfolio-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 3rem;
-    border-radius: 24px;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease, box-shadow 0.4s ease;
+    padding: 3rem 2rem;
+    border-radius: 28px;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), background 0.5s ease, box-shadow 0.5s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -309,59 +322,126 @@ nav .container {
     flex: 1;
 }
 
-.ai-visual {
-    flex: 1;
-    background: var(--bg-card);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid var(--border);
-    position: relative;
-}
-
-.ai-visual::after {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    background: linear-gradient(45deg, var(--primary), transparent, var(--primary));
-    z-index: -1;
-    border-radius: 20px;
-    opacity: 0.3;
-}
-
-/* Footer */
-footer {
-    padding: 4rem 0;
-    border-top: 1px solid var(--border);
-    text-align: center;
-}
-
-.footer-content {
+.chat-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
-.footer-links {
-    display: flex;
-    gap: 2rem;
+.chat-message {
+    padding: 1.25rem;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    max-width: 90%;
 }
 
-.footer-links a {
-    color: var(--text-muted);
+.chat-message.user {
+    align-self: flex-start;
+    background: #f1f5f9;
+    border: 1px solid rgba(0,0,0,0.05);
 }
 
-.footer-links a:hover {
+.chat-message.ai {
+    align-self: flex-end;
+    background: rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.1);
+}
+
+.chat-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
     color: var(--primary);
 }
 
-.copyright {
-    color: var(--text-muted);
-    font-size: 0.875rem;
+.chat-message.ai strong {
+    color: var(--text-main);
 }
 
-/* Responsive */
+/* Footer Improvements */
+footer {
+    padding: 6rem 0 3rem;
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.footer-brand p {
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+    max-width: 320px;
+}
+
+.footer-nav h4, .footer-social h4 {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.footer-nav a {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--text-muted);
+}
+
+.footer-nav a:hover {
+    color: var(--primary);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    transition: var(--transition);
+}
+
+.social-links a:hover {
+    background: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+    .portfolio-grid, .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
+    .portfolio-grid, .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
     .hero h1 {
         font-size: 2.75rem;
     }
@@ -386,9 +466,9 @@ footer {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr); /* Force 3 columns on desktop */
     gap: 2rem;
-    margin-top: 4rem;
+    margin-top: 5rem;
 }
 
 .pricing-card {

@@ -72,18 +72,14 @@
                         </ul>
                     </div>
                     <div class="ai-visual">
-                        <div style="text-align: left;">
-                            <div
-                                style="background: rgba(0,0,0,0.04); padding: 1rem; border-radius: 10px; margin-bottom: 1rem; font-size: 0.9rem;">
-                                <span style="color: var(--primary); font-weight: bold;">User:</span> Produk apa yang
-                                paling laris minggu ini?
+                        <div class="chat-container">
+                            <div class="chat-message user">
+                                <span class="chat-label">User:</span>
+                                <p>Produk apa yang paling laris minggu ini?</p>
                             </div>
-                            <div
-                                style="background: rgba(34, 197, 94, 0.08); padding: 1rem; border-radius: 10px; font-size: 0.9rem; border: 1px solid rgba(34, 197, 94, 0.1);">
-                                <span style="color: var(--primary); font-weight: bold;">OmzetAI:</span> Berdasarkan
-                                data, <span style="color: var(--text-main); font-weight: bold;">Kopi Susu Gula
-                                    Aren</span> meningkat 45% dibandingkan minggu lalu. Disarankan untuk menambah stok
-                                biji kopi Arabica.
+                            <div class="chat-message ai">
+                                <span class="chat-label">OmzetAI:</span>
+                                <p>Berdasarkan data, <strong>Kopi Susu Gula Aren</strong> meningkat 45% dibandingkan minggu lalu. Disarankan untuk menambah stok biji kopi Arabica.</p>
                             </div>
                         </div>
                     </div>
@@ -231,21 +227,31 @@
 
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <a href="#" class="logo">
-                    <img src="assets/logo.png" alt="OmzetAI Logo">
-                    <span>OmzetAI</span>
-                </a>
-                <p style="max-width: 400px; color: var(--text-muted);">Membantu bisnis UMKM hingga Enterprise
-                    bertransformasi secara digital dengan bantuan kecerdasan buatan.</p>
-                <div class="footer-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">LinkedIn</a>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="assets/logo.png" alt="OmzetAI Logo">
+                        <span>OmzetAI</span>
+                    </a>
+                    <p>Membantu bisnis UMKM hingga Enterprise bertransformasi secara digital dengan bantuan kecerdasan buatan.</p>
                 </div>
-                <div class="copyright">
-                    &copy; 2026 OmzetAI. All rights reserved.
+                <div class="footer-nav">
+                    <h4>Navigasi</h4>
+                    <a href="#features">Fitur</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#pricing">Harga</a>
                 </div>
+                <div class="footer-social">
+                    <h4>Ikuti Kami</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 OmzetAI. All rights reserved.</p>
             </div>
         </div>
     </footer>
