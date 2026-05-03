@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
+.mobile-only {
+    display: none;
+}
+
 :root {
     --primary: #22c55e;
     --primary-hover: #16a34a;
@@ -728,5 +732,17 @@ footer {
 
     .pricing-card.featured {
         transform: scale(1);
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    .nav-cta .dropdown {
+        display: none; /* Hide dropdown in navbar on mobile */
     }
 }
