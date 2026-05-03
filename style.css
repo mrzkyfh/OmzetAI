@@ -267,12 +267,7 @@ nav .container {
     border: 1px solid rgba(34, 197, 94, 0.1);
 }
 
-/* Floating Animation for Hero Image */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-    100% { transform: translateY(0px); }
-}
+
 
 .hero-image {
     width: 100%;
@@ -283,7 +278,6 @@ nav .container {
     border: 1px solid var(--border);
     box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.1);
     position: relative;
-    animation: float 6s ease-in-out infinite;
 }
 
 .portfolio-card h3 {

@@ -1,4 +1,25 @@
-// Smooth scrolling for navigation links
+// Register ScrollTrigger plugin
+gsap.registerPlugin(ScrollTrigger);
+
+// Navbar scroll effect
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        gsap.to(nav, {
+            padding: '0.6rem 0',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.05)',
+            duration: 0.3
+        });
+    } else {
+        gsap.to(nav, {
+            padding: '1rem 0',
+            boxShadow: 'none',
+            duration: 0.3
+        });
+    }
+});
+
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -12,45 +33,78 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for scroll reveal animations
-const observerOptions = {
-    threshold: 0.1
-};
+// Hero Section Entrance Animation
+const tlHero = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('reveal');
-        }
+tlHero.from('.hero-content .badge', { opacity: 0, y: 20, duration: 0.8 })
+      .from('.hero-content h1', { opacity: 0, y: 30, duration: 1 }, "-=0.6")
+      .from('.hero-content p', { opacity: 0, y: 20, duration: 0.8 }, "-=0.8")
+      .from('.hero-btns', { opacity: 0, y: 20, duration: 0.8 }, "-=0.6")
+      .from('.hero-image', { opacity: 0, scale: 0.95, duration: 1.2 }, "-=0.8");
+
+// Scroll Reveal for sections
+const sections = document.querySelectorAll('section');
+sections.forEach(section => {
+    // skip hero as it has its own entrance
+    if (section.classList.contains('hero')) return;
+
+    gsap.from(section, {
+        scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        opacity: 0,
+        y: 40,
+        duration: 1,
+        ease: "power2.out"
     });
-}, observerOptions);
-
-// Add reveal class to sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'all 0.8s ease-out';
-    observer.observe(section);
 });
 
-// Custom class for reveal effect
-const style = document.createElement('style');
-style.textContent = `
-    .reveal {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
-    }
-`;
-document.head.appendChild(style);
+// Staggered Reveal for Portfolio Cards
+gsap.from('.portfolio-card', {
+    scrollTrigger: {
+        trigger: '.portfolio-grid',
+        start: "top 80%"
+    },
+    opacity: 0,
+    y: 30,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "back.out(1.7)"
+});
 
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.style.padding = '0.5rem 0';
-        nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
-    } else {
-        nav.style.padding = '1rem 0';
-        nav.style.boxShadow = 'none';
-    }
+// Staggered Reveal for Pricing Cards
+gsap.from('.pricing-card', {
+    scrollTrigger: {
+        trigger: '.pricing-grid',
+        start: "top 80%"
+    },
+    opacity: 0,
+    y: 40,
+    duration: 0.8,
+    stagger: 0.2,
+    ease: "power2.out"
+});
+
+// AI Visual Interaction
+gsap.from('.ai-visual div', {
+    scrollTrigger: {
+        trigger: '.ai-visual',
+        start: "top 70%"
+    },
+    opacity: 0,
+    x: 30,
+    duration: 0.8,
+    stagger: 0.3,
+    ease: "power2.out"
+});
+
+// Floating Hero Image (Replaces CSS animation for more control)
+gsap.to('.hero-image', {
+    y: -15,
+    duration: 3,
+    repeat: -1,
+    yoyo: true,
+    ease: "sine.inOut"
 });
