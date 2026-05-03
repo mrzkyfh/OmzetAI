@@ -53,9 +53,11 @@ nav {
     width: 100%;
     z-index: 1000;
     background: var(--glass);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px); /* Reduced blur for performance */
+    -webkit-backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--border);
     padding: 1rem 0;
+    will-change: padding, box-shadow;
 }
 
 nav .container {
@@ -222,12 +224,13 @@ nav .container {
     border: 1px solid var(--border);
     padding: 3rem;
     border-radius: 24px;
-    transition: var(--transition);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    will-change: transform, opacity;
 }
 
 .portfolio-card::before {
@@ -394,9 +397,10 @@ footer {
     padding: 3rem 2.5rem;
     border-radius: 24px;
     position: relative;
-    transition: var(--transition);
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
+    will-change: transform, opacity;
 }
 
 .pricing-card.featured {
