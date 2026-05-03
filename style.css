@@ -321,7 +321,7 @@ nav .container {
     border: 1px solid var(--border);
     padding: 3rem 2rem;
     border-radius: 28px;
-    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), background 0.5s ease, box-shadow 0.5s ease;
+    transition: border-color 0.4s ease, background 0.4s ease;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -549,7 +549,7 @@ footer {
     padding: 3rem 2rem;
     border-radius: 28px;
     position: relative;
-    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease, box-shadow 0.4s ease;
+    transition: border-color 0.4s ease, background 0.4s ease;
     display: flex;
     flex-direction: column;
     will-change: transform, opacity;
