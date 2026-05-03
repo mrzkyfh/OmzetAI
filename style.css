@@ -124,15 +124,26 @@ nav .container {
     top: 100%;
     right: 0;
     background: white;
-    min-width: 200px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-    border-radius: 16px;
+    min-width: 220px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    border-radius: 20px;
     padding: 1rem;
-    margin-top: 1rem;
     display: none;
     z-index: 1002;
     border: 1px solid var(--border);
-    animation: slideUp 0.3s ease;
+    animation: slideUp 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: top right;
+}
+
+/* Bridge the gap between button and menu to maintain hover state */
+.dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: transparent;
 }
 
 .dropdown:hover .dropdown-menu {
