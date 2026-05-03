@@ -240,10 +240,14 @@ nav .container {
     transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), background 0.5s ease, box-shadow 0.5s ease;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
     overflow: hidden;
     will-change: transform, opacity;
+    height: 100%; /* Force equal height in grid */
+}
+
+.portfolio-card .card-content {
+    flex-grow: 1; /* Push button to bottom */
 }
 
 .portfolio-card::before {
@@ -474,20 +478,27 @@ footer {
 .pricing-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 3rem 2.5rem;
-    border-radius: 24px;
+    padding: 3rem 2rem;
+    border-radius: 28px;
     position: relative;
     transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), background 0.4s ease, box-shadow 0.4s ease;
     display: flex;
     flex-direction: column;
     will-change: transform, opacity;
+    height: 100%;
+}
+
+.pricing-card .btn {
+    width: 100%;
+    margin-top: auto; /* Force buttons to align at bottom */
+    text-align: center;
 }
 
 .pricing-card.featured {
     border: 2px solid #3b82f6;
-    transform: scale(1.05);
     z-index: 10;
-    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+    transform: scale(1.02); /* Less aggressive scaling */
 }
 
 .pricing-badge {
